@@ -9,7 +9,7 @@ function rateCalc(weight, type) {
   var price = 0.00;
   if (type == "sLetters") {
     if (weight <= 1) {
-      price = parseFloat("0.55");
+      price = "0.55";
     } else if (weight <= 2) {
       price = parseFloat("0.70");
     } else if (weight <= 3) {
