@@ -11,58 +11,58 @@ function rateCalc(weight, type) {
     if (weight <= 1) {
       price = 0.55;
     } else if (weight <= 2) {
-      price = parseFloat("0.70");
+      price = 0.70;
     } else if (weight <= 3) {
-      price = parseFloat("0.85");
+      price = 0.85;
     } else if (weight <= 3.5) {
-      price = parseFloat("1.00");
+      price = 1.00;
     }
   }
 
   else if (type == "mLetters") {
     if (weight <= 1) {
-      price = parseFloat(0.50);
+      price = 0.50;
     } else if (weight <= 2) {
-      price = parseFloat(0.65);
+      price = 0.65;
     } else if (weight <= 3) {
-      price = parseFloat(0.80);
+      price = 0.80;
     } else if (weight <= 3.5) {
-      price = parseFloat(0.95);
+      price = 0.95;
     }
   }
 
   else if (type == "lEnvelopes") {
     if (weight <= 1) {
-      price = parseFloat(1.15);
+      price = 1.15;
     } else if (weight <= 2) {
-      price = parseFloat(1.15);
+      price = 1.15;
     } else if (weight <= 3) {
-      price = parseFloat(1.30);
+      price = 1.30;
     } else if (weight <= 4) {
-      price = parseFloat(1.45);
+      price = 1.45;
     } else if (weight <= 5) {
-      price = parseFloat(1.60);
+      price = 1.60;
     } else if (weight <= 6) {
-      price = parseFloat(1.75);
+      price = 1.75;
     } else if (weight <= 7) {
-      price = parseFloat(1.90);
+      price = 1.90;
     } else if (weight <= 8) {
-      price = parseFloat(2.05);
+      price = 2.05;
     } else if (weight <= 9) {
-      price = parseFloat(2.20);
+      price = 2.20;
     } else if (weight <= 10) {
-      price = parseFloat(2.35);
+      price = 2.35;
     } else if (weight <= 11) {
-      price = parseFloat(2.50);
+      price = 2.50;
     } else if (weight <= 12) {
-      price = parseFloat(2.65);
+      price = 2.65;
     } else if (weight <= 13) {
-      price = parseFloat(2.80);
+      price = 2.80;
     }
   }
 
   else if (type == "fcps") {
-    price = parseFloat(100);
+    price = 100;
   }
 
   return price;
@@ -75,6 +75,6 @@ express()
   // .get('/', (req, res) => res.render('pages/index'))
   .get('/', (req, res) => res.render('pages/home'))
   .post('/result', urlEncodedParser, function (req, res){
-    res.render('pages/results', {param1 : parseInt(req.body.param1), param2 : req.body.param2, param3 : parseFloat(rateCalc(parseInt(req.body.param1), req.body.param2))});
+    res.render('pages/results', {param1 : parseInt(req.body.param1), param2 : req.body.param2, param3 : rateCalc(parseInt(req.body.param1), req.body.param2))});
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
