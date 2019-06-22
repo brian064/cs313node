@@ -11,7 +11,7 @@ function rateCalc(weight, type) {
     if (weight <= 1) {
       price = parseFloat("0.55");
     } else if (weight <= 2) {
-      price = parseFloat("0.70").toFixed(2);
+      price = parseFloat("0.70");
     } else if (weight <= 3) {
       price = parseFloat("0.85");
     } else if (weight <= 3.5) {
