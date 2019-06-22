@@ -17,7 +17,9 @@ function rateCalc(weight, type) {
     } else if (weight <= 3.5) {
       price = 1.00;
     }
-  } else if (type == "mLetters") {
+  }
+
+  else if (type == "mLetters") {
     if (weight <= 1) {
       price = 0.50;
     } else if (weight <= 2) {
@@ -27,7 +29,9 @@ function rateCalc(weight, type) {
     } else if (weight <= 3.5) {
       price = 0.95;
     }
-  } else if (type == "lEnvelopes") {
+  }
+
+  else if (type == "lEnvelopes") {
     if (weight <= 1) {
       price = 1.00;
     } else if (weight <= 2) {
@@ -54,7 +58,10 @@ function rateCalc(weight, type) {
       price = 2.65;
     } else if (weight <= 13) {
       price = 2.80;
-  } else if (type == "fcps") {
+    }
+  }
+
+  else if (type == "fcps") {
     price = 100;
   }
 
