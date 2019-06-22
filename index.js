@@ -9,7 +9,7 @@ function rateCalc(weight, type) {
   var price;
   if (type == "sLetters") {
     if (weight <= 1) {
-      price = parseFloat(0.55).toFixed(2);
+      price = parseFloat("0.55");
     } else if (weight <= 2) {
       price = parseFloat("0.70");
     } else if (weight <= 3) {
@@ -75,6 +75,6 @@ express()
   // .get('/', (req, res) => res.render('pages/index'))
   .get('/', (req, res) => res.render('pages/home'))
   .post('/result', urlEncodedParser, function (req, res){
-    res.render('pages/results', {param1 : parseInt(req.body.param1), param2 : req.body.param2, param3 : parseInt(rateCalc(parseInt(req.body.param1), req.body.param2))});
+    res.render('pages/results', {param1 : parseInt(req.body.param1), param2 : req.body.param2, param3 : parseInt(parseFloat(rateCalc(parseInt(req.body.param1), req.body.param2)))});
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
