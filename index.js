@@ -75,6 +75,6 @@ express()
   // .get('/', (req, res) => res.render('pages/index'))
   .get('/', (req, res) => res.render('pages/home'))
   .post('/result', urlEncodedParser, function (req, res){
-    res.render('pages/results', {param1 : parseInt(req.body.param1), param2 : req.body.param2, param3 : rateCalc(parseInt(req.body.param1), req.body.param2)});
+    res.render('pages/results', {param1 : parseInt(req.body.param1), param2 : req.body.param2, param3 : rateCalc(parseInt(req.body.param1).toFixed(2), req.body.param2)});
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
