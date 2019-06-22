@@ -65,7 +65,7 @@ function rateCalc(weight, type) {
     price = 100;
   }
 
-  return price;
+  return parseFloat(price);
 }
 
 express()
