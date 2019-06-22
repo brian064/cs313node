@@ -33,7 +33,7 @@ function rateCalc(weight, type) {
 
   else if (type == "lEnvelopes") {
     if (weight <= 1) {
-      price = parseFloat(1.00);
+      price = parseFloat(1.00).toFixed(2);
     } else if (weight <= 2) {
       price = parseFloat(1.15);
     } else if (weight <= 3) {
