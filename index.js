@@ -14,4 +14,4 @@ express()
   .post('/result', urlEncodedParser, function (req, res){
     res.render('pages/results', {param1 : parseInt(req.body.param1), param2 : parseInt(req.body.param2)});
   })
-  // .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))s
