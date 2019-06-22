@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 6464
 var urlEncodedParser = bodyParser.urlencoded({ extended:false })
 
 function rateCalc(weight, type) {
-  var price = 0.00;
+  var price;
   if (type == "sLetters") {
     if (weight <= 1) {
       price = "0.55";
@@ -65,7 +65,7 @@ function rateCalc(weight, type) {
     price = parseFloat(100);
   }
 
-  return parseFloat(price);
+  return price;
 }
 
 express()
