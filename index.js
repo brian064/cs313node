@@ -9,63 +9,63 @@ function rateCalc(weight, type) {
   var price;
   if (type == "sLetters") {
     if (weight <= 1) {
-      price = 0.55;
+      price = parseFloat(0.55);
     } else if (weight <= 2) {
-      price = 0.70;
+      price = parseFloat(0.70);
     } else if (weight <= 3) {
-      price = 0.85;
+      price = parseFloat(0.85);
     } else if (weight <= 3.5) {
-      price = 1.00;
+      price = parseFloat(1.00);
     }
   }
 
   else if (type == "mLetters") {
     if (weight <= 1) {
-      price = 0.50;
+      price = parseFloat(0.50);
     } else if (weight <= 2) {
-      price = 0.65;
+      price = parseFloat(0.65);
     } else if (weight <= 3) {
-      price = 0.80;
+      price = parseFloat(0.80);
     } else if (weight <= 3.5) {
-      price = 0.95;
+      price = parseFloat(0.95);
     }
   }
 
   else if (type == "lEnvelopes") {
     if (weight <= 1) {
-      price = 1.00;
+      price = parseFloat(1.00);
     } else if (weight <= 2) {
-      price = 1.15;
+      price = parseFloat(1.15);
     } else if (weight <= 3) {
-      price = 1.30;
+      price = parseFloat(1.30);
     } else if (weight <= 4) {
-      price = 1.45;
+      price = parseFloat(1.45);
     } else if (weight <= 5) {
-      price = 1.60;
+      price = parseFloat(1.60);
     } else if (weight <= 6) {
-      price = 1.75;
+      price = parseFloat(1.75);
     } else if (weight <= 7) {
-      price = 1.90;
+      price = parseFloat(1.90);
     } else if (weight <= 8) {
-      price = 2.05;
+      price = parseFloat(2.05);
     } else if (weight <= 9) {
-      price = 2.20;
+      price = parseFloat(2.20);
     } else if (weight <= 10) {
-      price = 2.35;
+      price = parseFloat(2.35);
     } else if (weight <= 11) {
-      price = 2.50;
+      price = parseFloat(2.50);
     } else if (weight <= 12) {
-      price = 2.65;
+      price = parseFloat(2.65);
     } else if (weight <= 13) {
-      price = 2.80;
+      price = parseFloat(2.80);
     }
   }
 
   else if (type == "fcps") {
-    price = 100;
+    price = parseFloat(100);
   }
 
-  return parseFloat(price);
+  return price;
 }
 
 express()
