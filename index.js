@@ -62,7 +62,15 @@ function rateCalc(weight, type) {
   }
 
   else if (type == "fcps") {
-    price = 100;
+    if (weight <= 4) {
+      price = 3.66;
+    } else if (weight <= 8) {
+      price = 4.39;
+    } else if (weight <= 12) {
+      price = 5.19;
+    } else if (weight <= 13) {
+      price = 5.71;
+    }
   }
 
   return price;

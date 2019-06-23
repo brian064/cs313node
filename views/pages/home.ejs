@@ -5,10 +5,17 @@
   </head>
 
   <body style="background-color: #262626; color: white;">
-    <h1>Hello there!</h1>
+    <h1>Postal Rate Calculator</h1>
     <form action="/result" method="post">
-      Param 1: <input type="number" min="0" step="0.01" id="param1" name="param1"><br/>
-      Param 2: <input type="text" id="param2" name="param2"><br/>
+      Input Weight: <input type="number" min="0" step="0.01" id="param1" name="param1"><br/>
+      Input Mail Type:<br/>
+      <ul>
+        <li>Letters (Stamped) => sLetters</li>
+        <li>Letters (Metered) => mLetters</li>
+        <li>Large Envelopes (Flats) => lEnvelopes</li>
+        <li>First-Class Package Service => fcps</li>
+      </ul><br/>
+      Mail Type: <input type="text" id="param2" name="param2"><br/>
       <br/><br/>
       <button type="submit">Submit</button><br/>
     </form>
