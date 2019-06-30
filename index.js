@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 6464
 var urlEncodedParser = bodyParser.urlencoded({ extended:false })
 
 const { Pool, Client } = require('pg')
-const connectionString = process.env.DATABASE_URL || 'postgres://hzlvifvfwjyloq:6a03cc31b99ce4f5a1454d76693e216452a71764894ca2287ef2a234ca3388d2@ec2-54-243-47-196.compute-1.amazonaws.com:5432/dba1e4ra4k189n'
+const connectionString = process.env.DATABASE_URL || 'postgres://hzlvifvfwjyloq:6a03cc31b99ce4f5a1454d76693e216452a71764894ca2287ef2a234ca3388d2@ec2-54-243-47-196.compute-1.amazonaws.com:5432/dba1e4ra4k189n?ssl=true'
 
 const pool = new Pool({
   connectionString: connectionString,
