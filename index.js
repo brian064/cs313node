@@ -5,6 +5,18 @@ const PORT = process.env.PORT || 6464
 
 var urlEncodedParser = bodyParser.urlencoded({ extended:false })
 
+const { Pool, Client } = require('pg')
+const connectionString = process.env.DATABASE_URL || 'postgres://hzlvifvfwjyloq:6a03cc31b99ce4f5a1454d76693e216452a71764894ca2287ef2a234ca3388d2@ec2-54-243-47-196.compute-1.amazonaws.com:5432/dba1e4ra4k189n'
+
+const pool = new Pool({
+  connectionString: connectionString,
+})
+
+const client = new Client({
+  connectionString: connectionString,
+})
+client.connect()
+
 function rateCalc(weight, type) {
   var price;
   if (type == "sLetters") {
@@ -84,5 +96,22 @@ express()
   .get('/', (req, res) => res.render('pages/home'))
   .post('/result', urlEncodedParser, function (req, res){
     res.render('pages/results', {param1 : parseFloat(req.body.param1), param2 : req.body.param2, param3 : rateCalc(parseFloat(req.body.param1), req.body.param2).toFixed(2)});
+  })
+  .get('/:usr', function (req, res) {
+    var sql = "SELECT * FROM myTable WHERE usrname = \'" + req.params.usr + "\'";
+
+    pool.query(sql, function(err, result) {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+
+        // Log this to the console for debugging purposes.
+        console.log("Back from DB with result:");
+        console.log(result.rows[0].usrname);
+
+        res.render('pages/dbTest');
+    });
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
