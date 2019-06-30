@@ -98,7 +98,7 @@ express()
     res.render('pages/results', {param1 : parseFloat(req.body.param1), param2 : req.body.param2, param3 : rateCalc(parseFloat(req.body.param1), req.body.param2).toFixed(2)});
   })
   .get('/:usr', function (req, res) {
-    var sql = "SELECT * FROM myTable WHERE usrname = \'" + req.params.usr + "\'";
+    var sql = "SELECT * FROM users WHERE usrname = \'" + req.params.usr + "\'";
 
     pool.query(sql, function(err, result) {
         // If an error occurred...
