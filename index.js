@@ -111,7 +111,7 @@ express()
         console.log("Back from DB with result:");
         console.log(result.rows[0].usrname);
 
-        res.render('pages/dbTest');
+        res.render('pages/dbTest', {usrname : result.rows[0].usrname});
     });
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
