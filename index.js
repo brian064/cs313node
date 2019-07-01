@@ -93,12 +93,14 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   // .get('/', (req, res) => res.render('pages/index'))
-  .get('/', (req, res) => res.render('pages/home'))
+  .get('/', (req, res) => res.render('pages/dbTest'))
   .post('/result', urlEncodedParser, function (req, res){
     res.render('pages/results', {param1 : parseFloat(req.body.param1), param2 : req.body.param2, param3 : rateCalc(parseFloat(req.body.param1), req.body.param2).toFixed(2)});
   })
-  .get('/:usr', function (req, res) {
-    var sql = "SELECT * FROM users WHERE usrname = \'" + req.params.usr + "\'";
+  .post('/info', urlEncodedParser, function (req, res) {
+    var sql = "SELECT * FROM users WHERE usrname = \'" + req.body.usr + "\'";
+
+    // var sql = "SELECT * FROM users";
 
     pool.query(sql, function(err, result) {
         // If an error occurred...
@@ -109,9 +111,9 @@ express()
 
         // Log this to the console for debugging purposes.
         console.log("Back from DB with result:");
-        console.log(result.rows[0].usrname);
+        console.log(result.rows[0].firstn);
 
-        res.render('pages/dbTest', {usrname : result.rows[0].usrname});
+        res.render('pages/info', {usrname : result.rows[0].usrname, firstn : result.rows[0].firstn, lastn : result.rows[0].lastn});
     });
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

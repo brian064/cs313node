@@ -5,7 +5,17 @@
   </head>
 
   <body style="background-color: #262626; color: white;">
-    <h1>DB Test Page</h1>
-    <br/><p>Your Username: <%= usrname %></p>
+    <h1>Retrieve your info:</h1>
+    <br/>
+    <p>Retrive test info for the following users: <br/></p>
+    <ul>
+      <li>Brian_064</li>
+      <li>tonyHawk</li>
+    </ul>
+    <form action="/info" method="post">
+      Username: <input type="text" name="usr"><br/>
+      <button type="submit">Retrieve</button>
+      <br/><br/>
+    </form>
   </body>
 </html>
