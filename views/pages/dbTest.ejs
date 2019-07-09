@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DB Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=devic  e-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>One Memory - Journal App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/styles.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
   </head>
 
-  <body style="background-color: #262626; color: white;">
-    <h1>Retrieve your info:</h1>
-    <br/>
-    <p>Retrive test info for the following users: <br/></p>
-    <ul>
-      <li>Brian_064</li>
-      <li>tonyHawk</li>
-    </ul>
-    <form action="/info" method="post">
-      Username: <input type="text" name="usr"><br/>
-      <button type="submit">Retrieve</button>
-      <br/><br/>
-    </form>
+  <body>
+
+    <div class="myNav">
+      <h2>One Memory</h2>
+    </div>
+
+
+    <div class="container infoBox">
+      <h3>Retrieve User Info:</h3>
+      <br/>
+      <p>Retrieve Test Info for one of the following users: <br/></p>
+      <ul>
+        <li>Brian_064</li>
+        <li>or</li>
+        <li>tonyHawk</li>
+      </ul>
+      <p>Note: Any other username will not work at the moment.</p>
+    </div>
+
+    <div class="container entryCard">
+      <form action="/info" method="post">
+        Username: <input type="text" name="usr"><br/><br/>
+        <button type="submit" class="btn btn-large btn-success">Retrieve</button>
+        <br/><br/>
+      </form>
+    </div>
+
+    <!-- jQuery library script below -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+    <!-- personal JS file below -->
+    <script src="prove05.js"></script>
   </body>
 </html>
