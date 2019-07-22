@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>One Memory - User Info</title>
+    <title>One Memory - User Created</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -26,18 +26,8 @@
     </div>
 
     <div class="container entryCard">
-      <h2><%= firstn + " " + lastn %>, Here is your latest memory: <br/><br/></h2>
-      <p class="latest"><%= latest %></p>
-
+      <h2><%= firstn + " " + lastn %>, Your account was successfully created! <br/><br/></h2>
       <a href="/"><button class="btn btn-large btn-success">Back</button></a>
-    </div>
-
-    <div class="container newMem">
-      <h2>Enter a new Memory here: <br/><br/></h2>
-      <form method="post" action="/addMem">
-        <textarea name="memory" rows="6" cols="50">Type Here.</textarea><br/>
-        <button type="submit" class="btn btn-large btn-success">Add Memory</button>
-      </form>
     </div>
 
     <!-- jQuery library script below -->

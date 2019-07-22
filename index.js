@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
+const session = require('express-session')
 const PORT = process.env.PORT || 6464
 
 var urlEncodedParser = bodyParser.urlencoded({ extended:false })
@@ -90,6 +91,7 @@ function rateCalc(weight, type) {
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
+  .use(session({secret : 'thisisthesecret'}))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   // .get('/', (req, res) => res.render('pages/index'))
@@ -98,7 +100,8 @@ express()
     res.render('pages/results', {param1 : parseFloat(req.body.param1), param2 : req.body.param2, param3 : rateCalc(parseFloat(req.body.param1), req.body.param2).toFixed(2)});
   })
   .post('/info', urlEncodedParser, function (req, res) {
-    var sql = "SELECT * FROM users WHERE usrname = \'" + req.body.usr + "\'";
+    req.session.usr = req.body.usr;
+    var sql = "SELECT * FROM users WHERE usrname = \'" + req.session.usr + "\'";
 
     // var sql = "SELECT * FROM users";
 
@@ -113,7 +116,43 @@ express()
         console.log("Back from DB with result:");
         console.log(result.rows[0].firstn);
 
-        res.render('pages/info', {usrname : result.rows[0].usrname, firstn : result.rows[0].firstn, lastn : result.rows[0].lastn});
+        var latestMem = result.rows[0].latest;
+
+        if (!result.rows[0].latest) {
+          latestMem = "No memories yet. Enter a new one below."
+        }
+
+        res.render('pages/info', {usrname : result.rows[0].usrname, firstn : result.rows[0].firstn, lastn : result.rows[0].lastn, latest : latestMem});
+    });
+  })
+  .post('/create', urlEncodedParser, function (req, res) {
+    var sql = "INSERT INTO users (usrname, firstn, lastn) VALUES (\'" + req.body.usr + "\', \'" + req.body.firstn + "\', \'" + req.body.lastn + "\')";
+
+    pool.query(sql, function(err, result) {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+
+        // Log this to the console for debugging purposes.
+
+        res.render('pages/create', {firstn : req.body.firstn, lastn : req.body.lastn});
+    });
+  })
+  .post('/addMem', urlEncodedParser, function (req, res) {
+    var sql = "UPDATE users SET latest = \'" + req.body.memory + "\' WHERE usrname = \'" + req.session.usr + "\'";
+
+    pool.query(sql, function(err, result) {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+
+        // Log this to the console for debugging purposes.
+
+        res.render('pages/dbTest');
     });
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

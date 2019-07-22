@@ -27,21 +27,28 @@
 
 
     <div class="container infoBox">
-      <h3>Retrieve User Info:</h3>
-      <br/>
-      <p>Retrieve Test Info for one of the following users: <br/></p>
-      <ul>
-        <li>Brian_064</li>
-        <li>or</li>
-        <li>tonyHawk</li>
-      </ul>
-      <p>Note: Any other username will not work at the moment.</p>
+      <h3>"Be A Little Bit Better Than Yesterday"</h3>
+      <br/><hr style="border-color: white;">
+      <h4>Welcome to One Memory!<br/></h4>
+      <p>One memory is a journaling app that helps you focus on progressing slowly but surely by only showing you your entry from the day before. This allows you to not dwell too much on the past, but rather keep moving forward!</p>
     </div>
 
     <div class="container entryCard">
       <form action="/info" method="post">
+        <h2>Have an account?<br/><br/></h2>
         Username: <input type="text" name="usr"><br/><br/>
-        <button type="submit" class="btn btn-large btn-success">Retrieve</button>
+        <button type="submit" class="btn btn-large btn-success">Log In</button>
+        <br/><br/>
+      </form>
+    </div>
+
+    <div class="container entryCard">
+      <form action="/create" method="post">
+        <h2>New Here?<br/><br/></h2>
+        Username: <input type="text" name="usr"><br/><br/>
+        First Name: <input type="text" name="firstn"><br/><br/>
+        Last Name: <input type="text" name="lastn"><br/><br/>
+        <button type="submit" class="btn btn-large btn-success">Create Account</button>
         <br/><br/>
       </form>
     </div>
